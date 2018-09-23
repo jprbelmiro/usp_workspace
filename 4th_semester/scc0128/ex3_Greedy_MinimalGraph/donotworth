@@ -1,0 +1,111 @@
+/*#include <iostream>
+#include <stdlib.h>
+#include <stdio.h>
+#include <vector>
+#include <queue>
+using namespace std;
+
+#define INF 9999999
+
+typedef pair<int,int> xy;
+typedef vector<xy> points;
+class Graph{
+    private:
+    public:
+        int nvertex, nedges;
+        
+        Graph();
+        vector<points> AdjList;
+};
+Graph::Graph(){}
+
+template <class T, class S, class C>
+void clearpq(priority_queue<T, S, C>& q){
+    q=priority_queue<T, S, C>();
+}
+
+int dijkstraTotalDistance( vector<int> dist, vector<int> parent){
+    int distance = 0;
+    for(int i = dist.size()-1 ; i >= 0 ; i--){
+        distance += dist[i];
+        for(int j = parent[i] ; dist[j] != 0 ; ){
+            distance -= dist[j];
+            j = parent[j];
+        }
+    }
+    return distance;
+}
+
+int main(){
+    int m, n, start;
+    int x, y, z;
+    Graph g;
+    
+    while(scanf("%d %d",&m,&n) != EOF && m != 0 && n != 0){
+        //1. Reading the number of junctions m and the number of 
+        //roads n in Byteland...
+        while(!(m >= 1 && m <= 200000) || !(n >= m-1 && n <= 200000))
+            cin >> m >> n;
+        
+        //2. Reading the roads and your length to build up the graph
+        //of Byteland's roads...
+        g.AdjList = vector<points>(m);
+        g.nvertex = m; g.nedges = n;
+        
+        int totalMeters = 0;
+        for(int i = 0 ; i < n ; i++){
+            scanf("%d %d %d",&x,&y,&z);
+            g.AdjList[x].push_back(make_pair(y,z));
+            g.AdjList[y].push_back(make_pair(x,z));
+            totalMeters += z;
+        }
+        
+        //3. Applying the Dijkstra Greedy Algorithm to discover the
+        //low cost meter ilumination to Byteland (short way)...
+        //a. Initializing distance vector and parent vector...
+	    vector<int> dist(g.nvertex, INF); 
+	    vector<int> parent(g.nvertex);
+
+        //b. Initializing the start point and the start distance...
+        start = 0;
+	    dist[start] = 0;  
+    
+        //c. Creating a priority queue for Dijsktra
+	    priority_queue<xy, vector<xy>, greater<xy> > pq; 
+	    pq.push(xy(0,start)); 
+
+        //d. Running Dijsktra Algotihm...
+    	while(!pq.empty()){
+    		xy front = pq.top();
+    		    pq.pop();
+    		    
+    		int d = front.first;
+    		int u = front.second;
+    
+    		if (d > dist[u])
+    		    continue;
+
+    		for(int j = 0 ; j < (int) g.AdjList[u].size() ; j++){
+    			xy v = g.AdjList[u][j];
+    			if (dist[u] + v.second < dist[v.first]){
+    				dist[v.first] = dist[u]+ v.second;
+    				parent[v.first] = u;
+    				pq.push(xy(dist[v.first], v.first));
+    			}
+    		}
+    	}
+    	
+    	//e. Calculating the new switch on meters...
+    	int optimizeMeters = dijkstraTotalDistance(dist,parent);
+    	
+    	//4. Printing the save money...
+    	int saveMoney = totalMeters - optimizeMeters;
+    	cout << saveMoney << endl;
+
+    	//5. Clearing the vector and lists used...
+	    g.AdjList.clear();
+	    dist.clear();
+	    parent.clear();
+	    clearpq(pq);
+    }
+}*/
