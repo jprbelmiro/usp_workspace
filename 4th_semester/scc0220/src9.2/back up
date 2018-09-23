@@ -1,0 +1,201 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include "utils.h"
+#include "btree.h"
+
+void freeBNode(t_bnode *node){
+    if(node){
+        freeBNode(node->left);
+        freeBNode(node->right);
+        free_(node);
+    }
+    return;
+}
+
+void destroyBTree(t_btree *btree){
+    if(btree){
+        freeBNode(btree->root);
+        free_(btree);
+    }
+    return;
+}
+
+t_bnode *maxBTree(t_bnode *node){
+    if(node->right == NULL)
+        return (node);
+        
+    return maxBTree(node->right);
+}
+
+t_bnode *minBTree(t_bnode *node){
+    if(node->left == NULL)
+        return (node);
+        
+    return minBTree(node->left);
+}
+
+int heightBTree(t_bnode *node){
+    if(node->left == NULL && node->right == NULL)
+        return (node->level)+1;
+    
+    int left = 0, right = 0;
+    if(node->left)
+        left = heightBTree(node->left);
+    if(node->right)
+        right = heightBTree(node->right);
+        
+    return (right>left)?(right):(left);
+}
+
+int sizeBTree(t_bnode *node){
+    if(!node)
+        return 0;
+    
+    if(!(node->left) && !(node->right))
+        return 1;
+    
+    int left = 0, right = 0;    
+    if(node->left)
+        left = sizeBTree(node->left);
+    if(node->right)
+        right = sizeBTree(node->right);
+
+    return 1 + left + right;
+}
+
+static void createBFSVector(t_bnode *node, int idx, int **tree){
+    if(node == NULL)
+        return;
+        
+    (*tree)[idx] = node->elem;
+    
+    if(node->left)
+        createBFSVector(node->left,(2*idx)+1,tree);
+    if(node->right)
+        createBFSVector(node->right,(2*idx)+2,tree);
+    return;
+}
+
+void printBFS(t_bnode *root){
+    if(!root)
+        return;
+        
+    //0. Variables...
+    int i = 0, size = 0, *treevec = NULL;
+        
+    //1. Creating the bfs tree...
+    size = heightBTree(root);
+    treevec = (int *)calloc(pow(2,size+1)-1,sizeof(int));
+    createBFSVector(root,0,&treevec);
+    
+    //2. Printing in BFS...
+    for(i = 0 ; i < size ; i++)
+        if(treevec[i] != 0)
+            printf("%d ",treevec[i]);
+    
+    //3. Freeing used memory...
+    free_(treevec);
+    return;
+}
+
+void printPosOrder(t_bnode *btree){
+    if(btree){
+        printPosOrder(btree->left);
+        printPosOrder(btree->right);
+        printf("%d ",btree->elem);
+    }
+    return;
+}
+
+void printInOrder(t_bnode *btree){
+    if(btree){
+        printInOrder(btree->left);
+        printf("%d ",btree->elem);
+        printInOrder(btree->right);
+    }
+    return;
+}
+
+void printPreOrder(t_bnode *btree){
+    if(btree){
+        printf("%d ",btree->elem);
+        printPreOrder(btree->left);
+        printPreOrder(btree->right);
+    }
+    return;
+}
+
+t_bnode *createBNode(int elem, int level){
+    t_bnode *node = (t_bnode *)malloc(sizeof(t_bnode));
+        node->elem = elem;
+        node->level = level;
+        node->left = NULL;
+        node->right = NULL;
+    return node;
+}
+
+void searchBTree(int elem, t_bnode *node){
+    if(node == NULL){
+        printf("Nao encontrado\n");
+        return;
+    }
+    if(node->elem == elem){
+        printf("Encontrado\n");
+        return;
+    }
+    else if(node->elem < elem)
+        searchBTree(elem,node->right);
+    else
+        searchBTree(elem,node->left);
+    return;
+}
+
+boolean deleteBTNode(int elem, t_bnode **node){
+    if((*node) == NULL){
+        printf("Nao encontrado\n");
+        return FALSE;
+    }
+	
+	t_bnode *aux = NULL;
+	if((*node)->elem < elem)  
+        return deleteBTNode(elem,&((*node)->right));   
+	else if((*node)->elem > elem)  
+	    return deleteBTNode(elem,&((*node)->left));
+    else{ 
+	    if((*node)->left != NULL && (*node)->right !=NULL ){    
+	       aux = minBTree((*node)->right);
+	       (*node)->elem = aux->elem;
+	       deleteBTNode((*node)->elem,&((*node)->right));   
+        }else{    
+            aux = (*node);    
+	       if((*node)->left == NULL)   
+	            (*node) = (*node)->right;   
+	       else
+	            (*node) = (*node)->left;                         
+	       free(aux);  
+	   }   
+    }
+    return TRUE;
+}
+
+void insertBTree(int elem, int level, t_bnode **node){
+    if(!(*node)){
+        *node = createBNode(elem,level);
+        return;
+    }
+    if((*node)->elem > elem)
+        insertBTree(elem,level+1,&((*node)->left));
+    else if((*node)->elem < elem)
+        insertBTree(elem,level+1,&((*node)->right));
+    else
+        printf("Chave existente\n");
+    return;
+}
+
+t_btree *createBTree(){
+    t_btree *tree = (t_btree *)malloc(sizeof(t_btree));
+        tree->root = NULL;
+    return tree;
+}
