@@ -1,0 +1,49 @@
+RADIUS = 5
+MP: mean time = 0.0070177293
+SP: mean time = 0.1598183346
+IE: mean time = 0.0067022157
+
+RADIUS = 10
+MP: mean time = 0.0084683037
+SP: mean time = 0.1877284837
+IE: mean time = 0.0090110707
+
+RADIUS = 20
+MP: mean time = 0.0139344859
+SP: mean time = 0.1877043462
+IE: mean time = 0.0143307400
+
+RADIUS = 50
+MP: mean time = 0.0382401252
+SP: mean time = 0.2421295166
+IE: mean time = 0.0368202567
+
+RADIUS = 70
+MP: mean time = 0.0425977850
+SP: mean time = 0.2025003362
+IE: mean time = 0.0414624906
+
+RADIUS = 100
+MP: mean time = 0.0699393678
+SP: mean time = 0.2554195023
+IE: mean time = 0.0744559693
+
+RADIUS = 120
+MP: mean time = 0.0682908034
+SP: mean time = 0.2284564447
+IE: mean time = 0.0701114583
+
+RADIUS = 150
+MP: mean time = 0.0870565724
+SP: mean time = 0.2360477662
+IE: mean time = 0.0865880704
+
+RADIUS = 170
+MP: mean time = 0.0980760121
+SP: mean time = 0.2501374102
+IE: mean time = 0.0976769042
+
+RADIUS = 200
+MP: mean time = 0.0956490493
+SP: mean time = 0.2808123732
+IE: mean time = 0.1101042414
