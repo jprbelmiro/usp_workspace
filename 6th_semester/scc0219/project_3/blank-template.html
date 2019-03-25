@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
   <head>
     <meta charset="utf-8">
     <title>Table template</title>
@@ -8,6 +8,13 @@
   <body>
     <table>
     	<caption>Data about the planets of our solar system (Planetary facts taken from <a href="http://nssdc.gsfc.nasa.gov/planetary/factsheet/">Nasa's Planetary Fact Sheet - Metric</a>.)</caption>
+
+    	<colgroup>
+    		<col span="2">
+    		<col style="border:4px solid #000000;">
+    		<col span="9">
+    	</colgroup>
+
     	<thead>
     		<tr>
 				<th colspan="2" scope="colgroup">&nbsp;</th>
@@ -26,8 +33,7 @@
 
     	<tbody>
     		<tr>
-				<th id="terrestial" colspan="2" rowspan="5" scope="rowgroup">Terrestial planets</th>
-				<tr>
+				<th id="terrestial" colspan="2" rowspan="4" scope="rowgroup">Terrestial planets
 	    			<th id="mercury" scope="row">Mercury</th>
 		    			<td headers="mass terrestial mercury">0.330</td>
 		    			<td headers="diameter terrestial mercury">4,879</td>
@@ -38,50 +44,47 @@
 						<td headers="temperature terrestial mercury">167</td>
 						<td headers="nmoons terrestial mercury">0</td>
 						<td headers="notes terrestial mercury">Closest to the Sun</td>
-				</tr>
-				<tr>
-					<th id="venus" scope="row">Venus</th>
-						<td headers="mass terrestial venus">4.87</td>
-						<td headers="diameter terrestial venus">12,104</td>
-						<td headers="density terrestial venus">5243</td>
-						<td headers="gravity terrestial venus">8.9</td>
-						<td headers="daylength terrestial venus">2802.0</td>
-						<td headers="sundist terrestial venus">108.2</td>
-						<td headers="temperature terrestial venus">464</td>
-						<td headers="nmoons terrestial venus">0</td>
-						<td headers="notes terrestial venus">&nbsp;</td>
-				</tr>
-				<tr>
-					<th id="earth" scope="row">Earth</th>
-						<td headers="mass terrestial earth">5.97</td>
-						<td headers="diameter terrestial earth">12,756</td>
-						<td headers="density terrestial earth">5514</td>
-						<td headers="gravity terrestial earth">9.8</td>
-						<td headers="daylength terrestial earth">24.0</td>
-						<td headers="sundist terrestial earth">149.6</td>
-						<td headers="temperature terrestial earth">15</td>
-						<td headers="nmoons terrestial earth">1</td>
-						<td headers="notes terrestial earth">Our world</td>
-				</tr>
-				<tr>	
-					<th id="mars" scope="row">Mars</th>
-						<td headers="mass terrestial mars">"0.642</td>
-						<td headers="diameter terrestial mars">6,792</td>
-						<td headers="density terrestial mars">3933</td>
-						<td headers="gravity terrestial mars">3.7</td>
-						<td headers="daylength terrestial mars">24.7</td>
-						<td headers="sundist terrestial mars">227.9</td>
-						<td headers="temperature terrestial mars">-65</td>
-						<td headers="nmoons terrestial mars">2</td>
-						<td headers="notes terrestial mars">The red planet</td>
-				</tr>
+			</tr>
+			<tr>
+				<th id="venus" scope="row">Venus</th>
+					<td headers="mass terrestial venus">4.87</td>
+					<td headers="diameter terrestial venus">12,104</td>
+					<td headers="density terrestial venus">5243</td>
+					<td headers="gravity terrestial venus">8.9</td>
+					<td headers="daylength terrestial venus">2802.0</td>
+					<td headers="sundist terrestial venus">108.2</td>
+					<td headers="temperature terrestial venus">464</td>
+					<td headers="nmoons terrestial venus">0</td>
+					<td headers="notes terrestial venus">&nbsp;</td>
+			</tr>
+			<tr>
+				<th id="earth" scope="row">Earth</th>
+					<td headers="mass terrestial earth">5.97</td>
+					<td headers="diameter terrestial earth">12,756</td>
+					<td headers="density terrestial earth">5514</td>
+					<td headers="gravity terrestial earth">9.8</td>
+					<td headers="daylength terrestial earth">24.0</td>
+					<td headers="sundist terrestial earth">149.6</td>
+					<td headers="temperature terrestial earth">15</td>
+					<td headers="nmoons terrestial earth">1</td>
+					<td headers="notes terrestial earth">Our world</td>
+			</tr>
+			<tr>	
+				<th id="mars" scope="row">Mars</th>
+					<td headers="mass terrestial mars">0.642</td>
+					<td headers="diameter terrestial mars">6,792</td>
+					<td headers="density terrestial mars">3933</td>
+					<td headers="gravity terrestial mars">3.7</td>
+					<td headers="daylength terrestial mars">24.7</td>
+					<td headers="sundist terrestial mars">227.9</td>
+					<td headers="temperature terrestial mars">-65</td>
+					<td headers="nmoons terrestial mars">2</td>
+					<td headers="notes terrestial mars">The red planet</td>
 			</tr>
 
 			<tr>
-				<th id="jovian" colspan="1" rowspan="7" scope="rowgroup">Jovian planets</th>
-				<tr>
-					<th id="gas" colspan="1" rowspan="3" scope="rowgroup">Gas giants</th> 
-					<tr>
+				<th id="jovian" colspan="1" rowspan="4" scope="rowgroup">Jovian planets</th>
+					<th id="gas" colspan="1" rowspan="2" scope="rowgroup">Gas giants</th> 
 						<th id="jupiter" scope="row">Jupiter</th> 
 							<td headers="mass jovian gas jupiter">1898</td>
 							<td headers="diameter jovian gas jupiter">142,984</td>
@@ -92,52 +95,47 @@
 							<td headers="temperature jovian gas jupiter">-110 </td> 
 							<td headers="nmoons jovian gas jupiter">67</td> 
 							<td headers="notes jovian gas jupiter">The largest planet</td>
-					</tr>
-					<tr>
-						<th id="saturn" scope="row">Saturn</th> 
-							<td headers="mass jovian gas saturn">568 </td>
-							<td headers="diameter jovian gas saturn">120,536 </td>
-							<td headers="density jovian gas saturn">687 </td>
-							<td headers="gravity jovian gas saturn">9.0 </td>
-							<td headers="daylength jovian gas saturn">10.7 </td>
-							<td headers="sundist jovian gas saturn">1433.5 </td>
-							<td headers="temperature jovian gas saturn">-140 </td>
-							<td headers="nmoons jovian gas saturn">62</td>
-							<td headers="notes jovian gas saturn">&nbsp;</td>
-					</tr>
-				</tr>
-				<tr>
-					<th id="ice" colspan="1" rowspan="3" scope="rowgroup">Ice giants</th>
-					<tr>
-						<th id="uranus" scope="row">Uranus</th> 
-							<td headers="mass jovian ice uranus">86.8 </td>
-							<td headers="diameter jovian ice uranus">51,118 </td>
-							<td headers="density jovian ice uranus">1271 </td>
-							<td headers="gravity jovian ice uranus">8.7 </td>
-							<td headers="daylength jovian ice uranus">17.2 </td>
-							<td headers="sundist jovian ice uranus">2872.5 </td>
-							<td headers="temperature jovian ice uranus">-195 </td>
-							<td headers="nmoons jovian ice uranus">27</td>
-							<td headers="notes jovian ice uranus">&nbsp;</td>
-					</tr>
-					<tr>
-						<th id="neptune" scope="row">Neptune</th>
-							<td headers="mass jovian ice neptune">102 </td>
-							<td headers="diameter jovian ice neptune">49,528 </td>
-							<td headers="density jovian ice neptune">1638 </td>
-							<td headers="gravity jovian ice neptune">11.0 </td>
-							<td headers="daylength jovian ice neptune">16.1</td> 
-							<td headers="sundist jovian ice neptune">4495.1 </td>
-							<td headers="temperature jovian ice neptune">-200</td> 
-							<td headers="nmoons jovian ice neptune">14</td>
-							<td headers="notes jovian ice neptune">&nbsp;</td>
-					</tr>
-				</tr>
+			</tr>
+			<tr>
+				<th id="saturn" scope="row">Saturn</th> 
+					<td headers="mass jovian gas saturn">568 </td>
+					<td headers="diameter jovian gas saturn">120,536 </td>
+					<td headers="density jovian gas saturn">687 </td>
+					<td headers="gravity jovian gas saturn">9.0 </td>
+					<td headers="daylength jovian gas saturn">10.7 </td>
+					<td headers="sundist jovian gas saturn">1433.5 </td>
+					<td headers="temperature jovian gas saturn">-140 </td>
+					<td headers="nmoons jovian gas saturn">62</td>
+					<td headers="notes jovian gas saturn">&nbsp;</td>
+			</tr>
+			<tr>
+				<th id="ice" colspan="1" rowspan="2" scope="rowgroup">Ice giants</th>
+					<th id="uranus" scope="row">Uranus</th> 
+						<td headers="mass jovian ice uranus">86.8 </td>
+						<td headers="diameter jovian ice uranus">51,118 </td>
+						<td headers="density jovian ice uranus">1271 </td>
+						<td headers="gravity jovian ice uranus">8.7 </td>
+						<td headers="daylength jovian ice uranus">17.2 </td>
+						<td headers="sundist jovian ice uranus">2872.5 </td>
+						<td headers="temperature jovian ice uranus">-195 </td>
+						<td headers="nmoons jovian ice uranus">27</td>
+						<td headers="notes jovian ice uranus">&nbsp;</td>
+			</tr>
+			<tr>
+				<th id="neptune" scope="row">Neptune</th>
+					<td headers="mass jovian ice neptune">102 </td>
+					<td headers="diameter jovian ice neptune">49,528 </td>
+					<td headers="density jovian ice neptune">1638 </td>
+					<td headers="gravity jovian ice neptune">11.0 </td>
+					<td headers="daylength jovian ice neptune">16.1</td> 
+					<td headers="sundist jovian ice neptune">4495.1 </td>
+					<td headers="temperature jovian ice neptune">-200</td> 
+					<td headers="nmoons jovian ice neptune">14</td>
+					<td headers="notes jovian ice neptune">&nbsp;</td>
 			</tr>
 
 			<tr>
-				<th id="dwarf" colspan="2" rowspan="2" scope="rowgroup">Dwarf planets*</th>
-				<tr>
+				<th id="dwarf" colspan="2" rowspan="1" scope="rowgroup">Dwarf planets*</th>
 					<th id="pluto" scope="row">Pluto</th> 
 						<td>0.0146</td>
 						<td>2,370</td>
@@ -148,7 +146,6 @@
 						<td>-225</td>
 						<td>5</td>
 						<td>Declassified as a planet in 2006, but this <a href="http://www.usatoday.com/story/tech/2014/10/02/pluto-planet-solar-system/16578959/">remains controversial</a>.</td>
-				</tr>
 			</tr>
     	</tbody>
     </table>
