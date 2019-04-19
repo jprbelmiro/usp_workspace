@@ -1,0 +1,10 @@
+# Comp. Files
+*.pyc
+*Pickle
+__pycache__/
+.idea/*
+*~
+[#]*[#]
+.\#*
+*.aux
+*.log
