@@ -1,25 +1,14 @@
-class Node():
+class Node(object):
 
 	# node intialisation method
-	def __init__(depth = 0, childs = list(), father = None,\
-	 visit_count = 0, state = None,value = 0):
+	def __init__(self, state, depth = 0, father = None):
 		# node strutuctural parameters
 		self.depth = depth
-		self.childs = childs
 		self.father = father
+		self.childs = []
 
 		# node evaluation parameters
-		self.visit_count = 0
 		self.state = state
-		self.value = value
-
-	# value calculation method
-	def update_value():
-		self.value = self.state.reward
-
-	# reset visit count method
-	def reset_visit()
-		self.visit_count = 
 
 	# add child method
 	def add_child(self,child):
@@ -30,11 +19,24 @@ class Node():
 		# b. appending the child
 		self.childs.append(child)
 
-class SearchTree():
+		return child
+
+	# add child method by state
+	def add_child_state(self,state):
+		# a. creating a child node
+		new_child = Node(state, depth = self.depth+1, father = self)
+
+		# b. appending the child
+		self.childs.append(new_child)
+
+		return new_child
+
+class SearchTree(object):
 	
 	# search tree initialisation method
-	def __init__(self,root = None):
+	def __init__(self,root = None,max_depth = 10):
 		self.root = root
+		self.max_depth = max_depth
 		self.update_depths(self.root,0)
 
 	# update the depths from a node method
@@ -80,3 +82,9 @@ class SearchTree():
 			return self.recursive_bfs(self.bfs_queue[0],state)
 		else:
 			return None
+
+	# print tree method
+	def show(self,node):
+		print node.depth,node.state.status
+		for child in node.childs:
+			self.show(child)
