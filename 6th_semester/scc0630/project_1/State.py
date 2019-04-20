@@ -19,7 +19,7 @@ class State(object):
 		new_status = tuple(map(operator.add,self.status, tuple([self.side*x for x in action])))
 		
 		# b. checking if the action is valid
-		if (new_status[0] > new_status[1] and new_status[1] != 0)\
+		if ((new_status[0] > new_status[1]) and new_status[1] != 0)\
 		or ((self.c_cannibals - new_status[0]) > (self.m_missionaries - new_status[1])\
 			and (self.m_missionaries - new_status[1]) != 0):
 			return None

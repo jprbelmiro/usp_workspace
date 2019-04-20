@@ -1,6 +1,8 @@
 #####
 # IMPORT PACKAGES
 #####
+import sys
+
 from SearchTree import SearchTree,Node
 from State import State
 
@@ -18,6 +20,12 @@ TERMINAL_STATE = State(c_cannibals = N_CANIBBALS, m_missionaries = M_MISSIONARIE
 
 # c. actions (transitions)
 ACTIONS = [(2,0),(0,2),(1,1),(1,0),(0,1)]
+
+# d. OS constraint
+sys.setrecursionlimit(50000)
+
+# e. execution parameter
+N_EXPERIMENTS = 50
 
 #####
 # CROSSING PROBLEM AUX METHODS
@@ -45,12 +53,22 @@ def dfs_expansion(cur_node,max_depth,actions):
 # CROSSING PROBLEM
 #####
 # 1. Initialising the search tree
-search_tree = SearchTree(root = Node(START_STATE),max_depth=3)
+start_node = Node(START_STATE)
+search_tree = SearchTree(start_node,int(sys.argv[1]))
 
 # 2. Building the entire tree (with restrictions)
 dfs_expansion(search_tree.root, search_tree.max_depth, ACTIONS)
 
 # 3. Searching for solutions
-#search_tree.show(search_tree.root)
-result_node = search_tree.dfs(search_tree.root,TERMINAL_STATE)
-print result_node
+# a. depth-first search
+print 'Depth-First Search - DFS'
+for i in range(N_EXPERIMENTS):
+	search_tree.dfs(search_tree.root,TERMINAL_STATE)
+
+# b. breadth-first search
+print 'Breadth-First Search - BFS'
+for i in range(N_EXPERIMENTS):
+	search_tree.bfs(search_tree.root,TERMINAL_STATE)
+
+# c. heuristic: a-star
+
