@@ -3,6 +3,7 @@
 #####
 import sys
 
+from a_star import a_star
 from SearchTree import SearchTree,Node
 from State import State
 
@@ -71,4 +72,5 @@ for i in range(N_EXPERIMENTS):
 	search_tree.bfs(search_tree.root,TERMINAL_STATE)
 
 # c. heuristic: a-star
-
+print 'A-Star Search - A*'
+a_star(search_tree)
