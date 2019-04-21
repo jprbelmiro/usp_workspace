@@ -6,6 +6,7 @@ import sys
 from a_star import a_star
 from SearchTree import SearchTree,Node
 from State import State
+from a_star import *
 
 #####
 # PROBLEM CONFIGURATION
@@ -55,22 +56,24 @@ def dfs_expansion(cur_node,max_depth,actions):
 #####
 # 1. Initialising the search tree
 start_node = Node(START_STATE)
-search_tree = SearchTree(start_node,int(sys.argv[1]))
+search_tree = SearchTree(start_node,12)
+search_astar = SearchAStar(START_STATE)
 
 # 2. Building the entire tree (with restrictions)
 dfs_expansion(search_tree.root, search_tree.max_depth, ACTIONS)
 
 # 3. Searching for solutions
 # a. depth-first search
-print 'Depth-First Search - DFS'
-for i in range(N_EXPERIMENTS):
-	search_tree.dfs(search_tree.root,TERMINAL_STATE)
+#print ('Depth-First Search - DFS')
+#for i in range(N_EXPERIMENTS):
+	#search_tree.dfs(search_tree.root,TERMINAL_STATE)
 
 # b. breadth-first search
-print 'Breadth-First Search - BFS'
-for i in range(N_EXPERIMENTS):
-	search_tree.bfs(search_tree.root,TERMINAL_STATE)
+#print ('Breadth-First Search - BFS')
+#for i in range(N_EXPERIMENTS):
+	#search_tree.bfs(search_tree.root,TERMINAL_STATE)
 
 # c. heuristic: a-star
-print 'A-Star Search - A*'
-a_star(search_tree)
+print('A Star')
+for i in range(N_EXPERIMENTS):
+    search_astar.initialize(TERMINAL_STATE, ACTIONS)
