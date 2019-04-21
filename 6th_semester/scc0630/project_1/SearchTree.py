@@ -75,7 +75,7 @@ class SearchTree(object):
 			file.close()
 
 		else:
-			print '- No solution found.'
+			print ('- No solution found.')
 
 	# depth-first search algorithm (recursive search)
 	def recursive_dfs(self,node,state):
@@ -116,7 +116,7 @@ class SearchTree(object):
 			file.close()
 
 		else:
-			print '- No solution found.'
+			print ('- No solution found.')
 
 	# breadth-first search algorithm (recursive search)
 	def recursive_bfs(self,node,state):
@@ -142,7 +142,7 @@ class SearchTree(object):
 
 	# print tree method
 	def show(self,node):
-		print node.depth,node.state.status
+		print (node.depth,node.state.status)
 		for child in node.childs:
 			self.show(child)
 
@@ -161,4 +161,4 @@ class SearchTree(object):
 			cur_node = copy(cur_node.father)
 
 		# c. showing the result
-		print '- Steps:', len(route)-1,'\n- Route:', list(reversed(route))
+		print( '- Steps:', len(route)-1,'\n- Route:', list(reversed(route)))

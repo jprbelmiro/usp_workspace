@@ -106,19 +106,11 @@ class processesActive(NodeTreeAStar):
                 return 1
             # confere se existe um processo Ativo com este nó
             else:
-                count = 0
-                # encontra o ultimo cchild do processo
-                for a in processes(key=lambda x: x[-1]):
-                    count += 1
-                    if self.rankEvaluationlist[0].father == a:
-                        break
-                # encontraa a lista que contem o child
-                for a in processes:
-                    count -= 1
-                    if count == 0:
+                for a in self.processes:
+                    if a[-1] == self.rankEvaluationlist[0].father:
                         self.cur_processe = a
                         self.cur_processe.append(self.rankEvaluationlist[0])
-                        break
+
                 return 1
 
 
