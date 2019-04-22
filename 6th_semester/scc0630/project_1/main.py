@@ -3,7 +3,6 @@
 #####
 import sys
 
-from a_star import a_star
 from SearchTree import SearchTree,Node
 from State import State
 from a_star import *
@@ -56,8 +55,7 @@ def dfs_expansion(cur_node,max_depth,actions):
 #####
 # 1. Initialising the search tree
 start_node = Node(START_STATE)
-search_tree = SearchTree(start_node,12)
-search_astar = SearchAStar(START_STATE)
+search_tree = SearchTree(start_node,15)
 
 # 2. Building the entire tree (with restrictions)
 dfs_expansion(search_tree.root, search_tree.max_depth, ACTIONS)
@@ -75,5 +73,6 @@ dfs_expansion(search_tree.root, search_tree.max_depth, ACTIONS)
 
 # c. heuristic: a-star
 print('A Star')
-for i in range(N_EXPERIMENTS):
-    search_astar.initialize(TERMINAL_STATE, ACTIONS)
+search_astar = SearchAStar(START_STATE,ACTIONS)
+#for i in range(N_EXPERIMENTS):
+search_astar.search(TERMINAL_STATE)
