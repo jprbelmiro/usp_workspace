@@ -3,6 +3,7 @@
 #####
 import sys
 
+from a_star import a_star
 from SearchTree import SearchTree,Node
 from State import State
 from a_star import *
@@ -73,7 +74,6 @@ dfs_expansion(search_tree.root, search_tree.max_depth, ACTIONS)
 	#search_tree.bfs(search_tree.root,TERMINAL_STATE)
 
 # c. heuristic: a-star
-
 print('A Star')
 for i in range(N_EXPERIMENTS):
     search_astar.initialize(TERMINAL_STATE, ACTIONS)
