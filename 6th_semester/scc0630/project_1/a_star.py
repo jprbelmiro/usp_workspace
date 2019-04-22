@@ -2,7 +2,7 @@ from State import State
 
 
 class NodeTreeAStar(State):
-    def __init__(self, state=None, depth=0, father=None):
+    def __init__(self, state=None, depth=0, father=None, actions=[]):
         # Estado pertencente ao nó
         self.state = state
 
@@ -16,9 +16,9 @@ class NodeTreeAStar(State):
         self.heuristic = 0  # Heuristic = Total de pessoas na margem origem
         self.evaluation = 0  # Função avaliadora >>> f(n) = g(n) + h(n)
 
-        self.functionEvaluation()
+        self.functionEvaluation(actions)
 
-    def addChild(self, state):
+    def addChild(self, state, actions):
         # Criando nó filho
         child = NodeTreeAStar(state, self.depth + 1, self)
 
@@ -32,26 +32,29 @@ class NodeTreeAStar(State):
         # child.depth = self.depth + 1
 
         # Avaliação permissiveel
-        child.functionEvaluation()
+        child.functionEvaluation(actions)
 
     # Modificação de Estado  -  depende das possibilidades do state
     def updateState(self, newstate):
         self.state = newstate
 
     # função Avaliadora
-    def functionEvaluation(self):
-        if self.state is not None:
-            self.heuristic = (self.state.status[0] + self.state.status[1]) - (
-                        self.state.c_cannibals + self.state.m_missionaries)
-            self.evaluation = self.heuristic + self.depth
-        else:
-            print("Erro: State não definido")
+    def functionEvaluation(self, actions):
+        self.heuristic = 0
+        for a in actions:
+            new_state = self.state.move(a)
+            if new_state is not None:
+                self.heuristic += 1
+
+
+        self.evaluation = self.heuristic  - self.depth
+
 
     def expandChild(self, actions):
         for a in actions:
             new_state = self.state.move(a)
             if new_state is not None:
-                self.addChild(new_state)
+                self.addChild(new_state,actions)
 
 
 class processesActive(NodeTreeAStar):
@@ -85,7 +88,7 @@ class processesActive(NodeTreeAStar):
         for child in father.childs:
             self.rankEvaluationlist.append(child)
 
-        self.rankEvaluationlist.sort(key=lambda x: x.evaluation)
+        self.rankEvaluationlist.sort(reverse=True,key=lambda x: x.evaluation)
 
     def manageAssets(self, termine_state):
         # Inicializa processo corrente
@@ -115,19 +118,24 @@ class processesActive(NodeTreeAStar):
 
 
 class SearchAStar():
-    def __init__(self, starte_state):
+    def __init__(self, starte_state, actions):
         # inicializa a arvore e processos ativos
-        self.root = NodeTreeAStar(starte_state)
+        self.root = NodeTreeAStar(starte_state, 0, None, actions)
         self.processes = processesActive(self.root)
 
-    def initialize(self, termine_state, action):
+    def initialize(self, termine_state, actions):
         # inicializa Arvore e processos
-        self.root.expandChild(action)
+        self.root.expandChild(actions)
         self.processes.rankEvaluation(self.root)
         progress = self.processes.manageAssets(termine_state)
 
         while progress != 0:
-            self.processes.cur_processe[-1].expandChild(action)
+            print("Evaluation:")
+            print(self.processes.rankEvaluationlist[0].evaluation)
+            print("Status")
+            print(self.processes.rankEvaluationlist[0].state.status)
+
+            self.processes.cur_processe[-1].expandChild(actions)
             self.processes.rankEvaluationlist.pop(0)
-            self.processes.rankEvaluation(self.processes.cur_processe[0])
+            self.processes.rankEvaluation(self.processes.cur_processe[-1])
             progress = self.processes.manageAssets(termine_state)
