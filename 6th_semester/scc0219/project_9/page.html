@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8">
+		<title>Cotações BB - Cliente</title>
+		<link rel='stylesheet' type="text/css" href="style.css" >
+		<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:700' rel='stylesheet' type='text/css'>
+	</head>
+	<body>
+		<div class="highlight">
+			<img src="https://img.ibxk.com.br/2013/09/20/20193003162.jpg" height="90" width="100"> 
+			</br>
+			Cotações: Banco Central do Brasil
+		</div>
+
+		<div class="row">
+		  <div class="column">
+		  	Escolha um período de cotação:</br>
+		  	</br>
+
+		  	<label for="input-days" class="custom-input">1)Entre o número de dias:</label>
+		  	<input type="text" id="input-days" name="" minlength="4" maxlength="7" placeholder="45 dias" pattern="^([0-9]|[1-8][0-9]|90) dia[s]*$" >
+		  	</br>
+		  	</br>
+
+		  	<label for="input-hour" class="custom-input">1)Entre o número de horas:</label>
+		  	<input type="text" id="input-hour" name="" minlength="5" maxlength="8" placeholder="12 horas" pattern="^([0-9]|1[0-9]|2[0-4]) hora[s]*$" >
+		  	</br>
+		  	</br>
+
+		  	<label for="input-min" class="custom-input">2)Entre o número de minutos:</label>
+		  	<input type="text" id="input-min" name="" minlength="8" maxlength="10" placeholder="30 minutos" pattern="^([0-9]|[1-4][0-9]|5[0-9]) min[uto]*[s]*$" >
+		  	</br>
+		  	</br>
+
+		  </div>
+
+		  <div class="column">
+		  	Escolha entre vendas e compras:
+		  	</br>
+		  	</br>
+
+		  	 <input type="checkbox" id="sells" name="sells">
+ 			 <label for="sells" class="custom-box"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCG_J1m3ILLPNDI_g2Wm5Pf6prnxxf5lGbz-GdA0ypt8V-T8yF" height="90" width="90" /> Vendas</label>
+		  	</br>
+		  	</br>
+
+		  	 <input type="checkbox" id="buy" name="buy">
+ 			 <label for="buy" class="custom-box"><img src="https://image.freepik.com/vetores-gratis/mao-que-da-o-saco-de-dinheiro-para-outro-lado_23-2147510248.jpg" height="90" width="90" /> Compra</label>
+		  	</br>
+
+		  </div>
+		  <div class="column">
+			Escolha a ordem de cotação que deseja visualizar
+		  	</br>
+		  	</br>
+
+		  	 <input type="checkbox" id="gt" name="gt">
+ 			 <label for="gt" class="custom-box"><img src="http://hanatemplate.com/images/seta-para-a-direita-7.png" height="40" width="40" /> Maior para Menor</label>
+		  	</br>
+		  	</br>
+
+		  	 <input type="checkbox" id="lt" name="lt">
+ 			 <label for="lt" class="custom-box"><img src="http://anclivepa-sp.com.br/posgraduacaocirurgia/wp-content/uploads/2018/05/seta-direita-verde.png" height="40" width="40" /> Menor para Maior</label>
+		  	</br>
+		  </div>
+		</div>
+	</body>
+	<footer>
+		Trabalho desenvolvido por:</br></br>
+		João Pedro Ramos Belmiro - 9791148</br>
+		Matheus Aparecido do Carmo Alves - 9791114</br>
+	</footer>
+</html>
