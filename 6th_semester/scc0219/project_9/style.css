@@ -56,6 +56,26 @@ footer {
   border-radius: 20px;
 }
 
+.column-list {
+  float: left;
+  width: 48%;
+  height: 100%; 
+  margin: 0%;
+}
+
+li:nth-child(odd){
+  font-size: 90%;
+  text-align: center;
+  background: rgb(240, 240, 240);
+  color: black;
+}
+li:nth-child(even){
+  font-size: 90%;
+  text-align: center;
+  background: white;
+  color: black;
+}
+
 .row:after {
   content: "";
   display: table;
@@ -96,3 +116,40 @@ footer {
   transition: opacity .2s;
 }
 
+/* Box styles */
+.myBox {
+margin-right: -50%;
+margin-left: 25%;
+margin-bottom: 5%;
+
+max-height: 300px;
+width: 50%;
+
+border: 2px solid rgb(200,200,200);
+
+padding: 5px;
+font: 24px/36px sans-serif;
+
+overflow: scroll;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+width: 12px;
+height: 12px;
+}
+
+::-webkit-scrollbar-track {
+border: 1px solid rgb(10, 10, 130);
+border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+background: rgb(255, 225, 0);  
+border-radius: 20px;
+border: 1px solid black;
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: #88ba1c;  
+}
