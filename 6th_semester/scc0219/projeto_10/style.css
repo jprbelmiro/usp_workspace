@@ -124,6 +124,14 @@ p{
   color: black;
 }
 
+option{
+  font-size: 90%;
+  font-family: sans-serif;
+  text-align: center;
+  color: black;
+  margin: 20px;
+}
+
 .custom-list {
   font-family: sans-serif;
   font-size: 100%;
@@ -133,7 +141,7 @@ p{
 
   appearance: none;
   width: 100%; /* Full-width */
-  height: 330px; /* Specified height */
+  height: 280px; /* Specified height */
   background: #ffffff; /* Grey background */
   outline: none; /* Remove outline */
   opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
