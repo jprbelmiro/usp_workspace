@@ -1,0 +1,176 @@
+body {
+  padding: 0;
+  margin: 0;
+  background: #ffffff;
+}
+
+body.about {
+  padding: 0;
+  margin: 0;
+  background: #ffffff;
+  background-image: url("https://cdnb.artstation.com/p/assets/images/images/005/847/333/large/fabio-sanches-ij-en-113-v03-cora.jpg?1494211623");
+}
+
+h1{
+	margin-top: 2%;
+	margin-left: 5%;
+	text-align: left;
+	color:black;
+}
+
+h1.white {
+	margin-top: 2%;
+	margin-left: 5%;
+	text-align: left; 
+	color:white;
+	text-shadow: black -3px 3px 1px;
+}
+
+h3{
+	margin-top: 2%;
+	margin-left: 5%;
+	text-align: left;
+	color:black;
+}
+
+h3.white {
+	margin-top: 2%;
+	margin-left: 5%;
+	text-align: left; 
+	color:white;
+	text-shadow: black 0.1em 0.1em 0.2em;
+}
+
+
+
+/*---   page content ---*/
+.features {
+  margin: 4em auto;
+  padding: 1em;
+  position: relative;
+}
+.feature-title {
+  color: #333;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+.features img {
+  -webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+  margin-bottom: 16px;
+}
+
+/*---   page header  ---*/
+.header {
+  background-image: url('http://www.set.eesc.usp.br/lamem/imagens/cidade_campus_5.JPG');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+header.contact {
+  background-image: url('https://cursosgratuitoscomcertificado.net/wp-content/uploads/2014/12/cursos-gratuitos-de-informatica-para-a-maturidade.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  min-height: 100%;
+  min-width: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.description {
+  left: 50%;
+  position: absolute;
+  top: 45%;
+  transform: translate(-50%, -55%);
+  text-align: center;
+}
+.description h1 {
+  color: #ffffff;
+}
+.description p {
+  color: #fafafa;
+  font-size: 1.3rem;
+  line-height: 1.5;
+  text-align: center;
+}	
+.description button {
+  border:1px solid #ffffff;
+  background:#453387;
+  border-radius: 0;
+  color:#f2f2f2;
+}
+.description button:hover {
+  border:1px solid #fff;
+  background:#efefef;
+  color:#000;
+}
+
+/*--- navigation bar ---*/
+.navbar {
+  background:#f8f8f8;
+  position: relative;
+  top: 0;
+}
+.nav-link,
+.navbar-brand {
+  color: #453387;
+  cursor: pointer;
+}
+.nav-link {
+  margin-right: 1em !important;
+}
+.nav-link:hover {
+  color: #000;
+}
+.navbar-collapse {
+  justify-content: flex-start;
+}
+
+/*--- page footer ---*/
+.page-footer {
+  background-color: #222;
+  color: #ccc;
+  padding: 60px 0 30px;
+}
+.footer-copyright {
+  color: #666;
+  padding: 40px 0;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.reduced{
+  text-align: justify;
+  padding-right: 30%;
+}
+
+.reduced-white{
+  text-align: justify;
+  padding-right: 30%;
+  color: white;
+  text-shadow: purple -1px 1px 2px;
+  background: rgba(0,0,0,0.4);
+  padding: 2%;
+}
+
+.contact-white{
+  text-align: justify;
+  padding-right: 30%;
+  color: white;
+  text-shadow: black -1px 1px 2px;
+  background: rgba(0,0,0,0.2);
+  padding: 2%;
+}
